@@ -27,7 +27,7 @@ A Telegram bot that sends automated reminders and provides course materials for 
    - Respond to requests for course materials
    - Provide module-specific information and links
 
-## ⏰ Reminder Scheduling Logic (2025 Update)
+## ⏰ Reminder Scheduling Logic
 
 - **Reminders are now scheduled at two key times:**
 
@@ -71,36 +71,36 @@ Each module has specific attendance requirements and QR code generation links:
 
 - Course Run ID: 1135657
 - Course Run Code: RA576073
-- Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/c
-- Instructions: Key in course run code RA576073 to generate QR code
+- Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/RA576073
+- QR Code Generator: https://www.myskillsfuture.gov.sg/spface/spverify/scanQRCode?courseRunCode=RA576073
 
 **Module 3 – Building Intelligent Systems: Machine Learning and Generative AI**
 
 - Course Run ID: 1135662
 - Course Run Code: RA576079
 - Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/RA576079
-- Instructions: Key in course run code RA576079 to generate QR code
+- QR Code Generator: https://www.myskillsfuture.gov.sg/spface/spverify/scanQRCode?courseRunCode=RA576079
 
 **Module 4 – Certified AI Practitioner**
 
 - Course Run ID: 1135673
 - Course Run Code: RA576096
 - Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/RA576096
-- Instructions: Key in course run code RA576096 to generate QR code
+- QR Code Generator: https://www.myskillsfuture.gov.sg/spface/spverify/scanQRCode?courseRunCode=RA576096
 
 **Module 5 – Transforming Business with GPT: Hands-On Generative AI Applications**
 
 - Course Run ID: 1135676
 - Course Run Code: RA576098
 - Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/RA576098
-- Instructions: Key in course run code RA576098 to generate QR code
+- QR Code Generator: https://www.myskillsfuture.gov.sg/spface/spverify/scanQRCode?courseRunCode=RA576098
 
-**Module 6 – Full Stack Programming and Deployment​ of AI Solutions**
+**Module 6 – Full Stack Programming and Deployment of AI Solutions**
 
 - Course Run ID: 1135690
 - Course Run Code: RA576102
 - Attendance URL: https://www.myskillsfuture.gov.sg/api/take-attendance/RA576102
-- Instructions: Key in course run code RA576102 to generate QR code
+- QR Code Generator: https://www.myskillsfuture.gov.sg/spface/spverify/scanQRCode?courseRunCode=RA576102
 
 ## Attendance Instructions and Bot Messages
 
