@@ -72,8 +72,11 @@ async def schedule_all_reminders(bot: Bot, test_mode=False):
                 logging.warning(f"[TEST MODE] Sending test reminder for: {title}")
                 msg = f"🧪 TEST MODE: {REMINDER_TEMPLATES['start'].format(title=title)}"
                 msg += f"\nTime: {start_str} - {end_str}"
-                if row.get("Location", ""):
-                    msg += f"\nVenue: {row.get('Location', '')}"
+                location = row.get("Location", "")
+                if location:
+                    msg += f"\nVenue: {location}"
+                    if location.lower() == "online zoom":
+                        msg += "\nZoom Link: https://ntu-sg.zoom.us/meeting/register/xtJa3RhhQuurKMnBXuqEWg"
                 if description:
                     msg += f"\n{description}"
                 if github_url:
