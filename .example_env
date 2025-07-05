@@ -1,0 +1,8 @@
+# .env_example
+# Copy this file to .env and fill in your credentials
+TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+GOOGLE_SHEET_ID=your-google-sheet-id
+GOOGLE_SERVICE_ACCOUNT_JSON=path/to/your/service_account.json
+TIMEZONE=Asia/Singapore
+SQLITE_DB_PATH=bot_database.sqlite3
+CHECK_SHEET_INTERVAL=86400
