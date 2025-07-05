@@ -77,6 +77,7 @@ async def req_schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"This contains all upcoming activities, timings, and details for our Data Science & AI course."
         )
 
+
 # /recent command
 async def recent(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
@@ -253,17 +254,44 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "I value your feedback! Please send your suggestions or issues to me (@TanZhiHao)"
         )
 
+# /ntu_learn command
+async def ntu_learn(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """
+    Handles the /ntu_learn command. Provides the link to NTU Learn for announcements and assessments.
+    """
+    if update.message:
+        await update.message.reply_text(
+            "\U0001F4DA NTU Learn\n\n"
+            "Access announcements and assessments at NTU Learn:\n"
+            "https://ntulearn.ntu.edu.sg/ultra/institution-page"
+        )
+
+# /zoom command
+async def zoom(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """
+    Handles the /zoom command. Provides the link for the Zoom lesson.
+    """
+    if update.message:
+        await update.message.reply_text(
+            "\U0001F4F9 Zoom Lesson Link\n\n"
+            "Join the Zoom lesson here:\n"
+            "https://ntu-sg.zoom.us/meeting/register/xtJa3RhhQuurKMnBXuqEWg"
+        )
+
 async def set_bot_commands(application):
     commands = [
         BotCommand("start", "Start the DS2 Reminder Bot and register for reminders"),
         BotCommand("toggle_reminder", "Enable or disable reminder notifications"),
         BotCommand("req_schedule", "Request the Google Sheet schedule link"),
         BotCommand("recent", "Show next 5 upcoming activities"),
+        BotCommand("ntu_learn", "Get the link to NTU Learn for announcements and assessments"),
+        BotCommand("zoom", "Get the Zoom lesson link"),
         BotCommand("wifi", "Instructions for NTU Wireless Network Login"),
         BotCommand("direction_ntu", "Get directions to NTU@one-north Executive Centre"),
         BotCommand("direction_e2i", "Get directions to e2i@Jurong East"),
         BotCommand("direction_lli", "Get directions to LLI@Paya Lebar"),
         BotCommand("feedback", "Send feedback or suggestions to the bot creator"),
+        
     ]
     await application.bot.set_my_commands(commands)
 
@@ -274,9 +302,12 @@ def get_handlers():
         CommandHandler("req_schedule", req_schedule),
         CommandHandler("recent", recent),
         CommandHandler("broadcast", broadcast),
+        CommandHandler("ntu_learn", ntu_learn),
+        CommandHandler("zoom", zoom),
         CommandHandler("wifi", wifi),
         CommandHandler("direction_ntu", direction_ntu),
         CommandHandler("direction_e2i", direction_e2i),
         CommandHandler("direction_lli", direction_lli),
         CommandHandler("feedback", feedback),
+        
     ]
