@@ -5,6 +5,7 @@ from config import GOOGLE_SHEET_ID
 from datetime import datetime
 import pytz
 from services.sheet_service import fetch_activities, clean_activities_data
+from telegram import LinkPreviewOptions
 
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -110,15 +111,19 @@ async def recent(update: Update, context: ContextTypes.DEFAULT_TYPE):
             upcoming_activities = upcoming_activities[:5]
             
             if upcoming_activities:
-                message = "📍 Next 5 Upcoming Activities:\n\n"
+                # Use full Unicode emoji instead of surrogate pairs for compatibility
+                pin_emoji = "\U0001F4CD"  # 📍
+                calendar_emoji = "\U0001F4C5"  # 📅
+                message = f"{pin_emoji} Next 5 Upcoming Activities:\n\n"
                 for i, (start_dt, activity) in enumerate(upcoming_activities, 1):
                     title = activity.get("Title", "Activity")
                     location = activity.get("Location", "TBD")
+                    day_of_week = start_dt.strftime("%A")
                     start_time = start_dt.strftime("%d/%m/%Y %H:%M")
                     end_str = activity.get("EndTime", "")
-                    
+                    github_url = activity.get("GitHub URL")
                     message += f"{i}. {title}\n"
-                    message += f"   📅 {start_time}"
+                    message += f"   {calendar_emoji} {day_of_week}, {start_time}"
                     if end_str:
                         try:
                             end_dt = pytz.timezone('Asia/Singapore').localize(
@@ -127,14 +132,17 @@ async def recent(update: Update, context: ContextTypes.DEFAULT_TYPE):
                             message += f" - {end_dt.strftime('%H:%M')}"
                         except Exception:
                             pass
-                    message += f"\n   📍 {location}\n\n"
-                
-                await update.message.reply_text(message)
-            else:
-                await update.message.reply_text("📅 No upcoming activities found in the schedule.")
+                    message += f"\n   {pin_emoji} {location}"
+                    if github_url:
+                        message += f"\n   \U0001F5C3 GitHub: {github_url}"
+                    message += "\n\n"
+                await update.message.reply_text(
+                    message,
+                    link_preview_options=LinkPreviewOptions(is_disabled=True)
+                )
         except Exception as e:
-            await update.message.reply_text("❌ Unable to fetch schedule. Please try again later.")
-
+            await update.message.reply_text(f"Error fetching recent activities: {e}")
+            
 # /broadcast command (hidden - admin only)
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
