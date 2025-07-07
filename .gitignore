@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.production
+.env.dev
 
 # Credentials and sensitive files
 *.json
