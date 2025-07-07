@@ -132,7 +132,7 @@ The bot should inform students that:
 
 ### Reminder Messages
 
-1. **30 minutes before class**: "Reminder: Activity ([Calendar title]) starts in 30 minutes. Please prepare to join."
+1. **30 minutes before class**: "Reminder: Activity ([Calendar title]) starts in 30 minutes. Remember to scan attendance QR code."
 2. **Class end**: "Activity ([Calendar title]) has ended. You have 30 minutes to scan for attendance if you haven't done so."
 
 ### Material Requests

@@ -10,3 +10,4 @@ GOOGLE_SHEET_NAME = os.getenv("GOOGLE_SHEET_NAME")
 TIMEZONE = os.getenv("TIMEZONE", "Asia/Singapore")
 SQLITE_DB_PATH = os.getenv("SQLITE_DB_PATH", "bot_database.sqlite3")
 CHECK_SHEET_INTERVAL = int(os.getenv("CHECK_SHEET_INTERVAL", 86400))  # Default: 86400 seconds = 1 day
+DEVELOPER_TELEGRAM_ID = os.getenv("DEVELOPER_TELEGRAM_ID", "")

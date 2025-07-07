@@ -1,7 +1,7 @@
 from telegram import Update, BotCommand
 from telegram.ext import CommandHandler, ContextTypes
 from services.database import get_db_connection, cleanup_duplicate_telegram_ids
-from config import GOOGLE_SHEET_ID
+from config import GOOGLE_SHEET_ID, DEVELOPER_TELEGRAM_ID
 from datetime import datetime
 import pytz
 from services.sheet_service import fetch_activities, clean_activities_data
@@ -259,7 +259,7 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
         await update.message.reply_text(
             "📩 Feedback\n\n"
-            "I value your feedback! Please send your suggestions or issues to me (@TanZhiHao)"
+            f"I value your feedback! Please send your suggestions or issues to me ({DEVELOPER_TELEGRAM_ID})"
         )
 
 # /ntu_learn command

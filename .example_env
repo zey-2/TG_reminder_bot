@@ -6,3 +6,4 @@ GOOGLE_SERVICE_ACCOUNT_JSON=path/to/your/service_account.json
 TIMEZONE=Asia/Singapore
 SQLITE_DB_PATH=bot_database.sqlite3
 CHECK_SHEET_INTERVAL=86400
+DEVELOPER_TELEGRAM_ID=@YourTelegramHandle
